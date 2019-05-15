@@ -19,4 +19,9 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/../../../.."
 
-CC_PREFIX=aarch64-linux-gnu- make -j 3 -f tensorflow/lite/tools/make/Makefile TARGET=aarch64 TARGET_ARCH=armv8-a
+
+export PATH="/home/zhaoxi/android/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH"
+
+
+#CC_PREFIX=  make  micro -j 4 -f tensorflow/lite/tools/make/Makefile TARGET=aarch64 TARGET_ARCH=armv8-a
+CC_PREFIX=  make  micro -j 8 -f tensorflow/lite/tools/make/Makefile TARGET=aarch64 TARGET_ARCH=armv8-a
